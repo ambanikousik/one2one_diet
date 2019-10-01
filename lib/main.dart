@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'body.dart';
+import 'productView.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,3 +17,33 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: ListView.builder(
+        itemCount: ProductsList.length,
+        itemBuilder: (context, index) {
+          final products = ProductsList[index];
+          return productsView(products);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Send to Whatsapp',
+        child: Icon(Icons.send),
+        backgroundColor: Colors.green,
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}

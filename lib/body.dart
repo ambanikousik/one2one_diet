@@ -1,43 +1,33 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
-
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class productsView extends StatelessWidget{
+   var listItem;
+   productsView(this.listItem);
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    // TODO: implement build
+    return SafeArea(
+      child: Container(
+        margin: const EdgeInsets.only(
+        bottom: 8,
+          top: 2,
+          left: 5,
+          right: 5
+        ),
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              title: Text(listItem.name),
+            ),
+          ],
+        ),
+        decoration: BoxDecoration(
+            color: Colors.redAccent,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        //padding: EdgeInsets.only(bottom:10),
       ),
-      body: ListView.builder(
-      itemCount: ProductsList.length,
-      itemBuilder: (context, index) {
-        final products = ProductsList[index];
-        return ListTile(
-          title: Text(products.),
-        );
-      },
-    ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.send),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }

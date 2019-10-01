@@ -1,12 +1,12 @@
 class Products {
-  String name;
-  int quantity;
+ final String name;
+ final int quantity;
 
   Products(
       {this.name, this.quantity});
 }
 
-  List ProductsList =
+  List<Products> ProductsList =
   [
     Products(
       name: 'SHAKE - Chocolate',
