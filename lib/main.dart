@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'body.dart';
 import 'productView.dart';
+import 'package:flutter_launch/flutter_launch.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: '1:1 Diet'),
     );
   }
 }
@@ -25,6 +27,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  void sendWhatsapp(String text) async {
+    await FlutterLaunch.launchWathsApp(phone: "+880 1673-856051", message: text);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          String text='';
+          for( var i = 0 ; i <ProductsList.length; i++ ) {
+            final products = ProductsList[i];
+            if(products.quantity>0 && products.checked == true){
+              text = text+products.name+': '+products.quantity.toString()+'\n';
+            }
+            sendWhatsapp(text);
+          }
+        },
         tooltip: 'Send to Whatsapp',
         child: Icon(Icons.send),
         backgroundColor: Colors.green,

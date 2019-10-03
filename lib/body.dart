@@ -1,33 +1,83 @@
 import 'package:flutter/material.dart';
-class productsView extends StatelessWidget{
-   var listItem;
-   productsView(this.listItem);
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class productsView extends StatefulWidget{
+ final listItem;
+  productsView(this.listItem);
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _productsView();
+  }
+
+}
+
+class _productsView extends State<productsView>{
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SafeArea(
-      child: Container(
-        margin: const EdgeInsets.only(
-        bottom: 8,
-          top: 2,
-          left: 5,
-          right: 5
-        ),
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              title: Text(listItem.name),
-            ),
-          ],
-        ),
-        decoration: BoxDecoration(
-            color: Colors.redAccent,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        //padding: EdgeInsets.only(bottom:10),
+    
+    return  Container(
+      margin: const EdgeInsets.only(
+          bottom: 5,
+          top: 5,
+          left: 10,
+          right: 10,
+      ),
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Container(
+                height: 20,
+                child: Checkbox(
+                  activeColor: Colors.blueGrey,
+                  value: widget.listItem.checked,
+                  onChanged: (bool value){
+                    setState(() {
+                      widget.listItem.checked = value;
+                    });
+                  },
+                ),
+              ),
+              Text(widget.listItem.name,style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+              ),),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              IconButton(icon: Icon(FontAwesomeIcons.minus), onPressed: (){
+                setState(() {
+                  if(widget.listItem.quantity>0){
+                    widget.listItem.quantity--;
+                  }
+                });
+              },),
+              Container(
+                  width:50,
+                  height: 40,
+                  alignment: Alignment.center,
+                  child: Text(widget.listItem.quantity.toString(),style: TextStyle(fontWeight:FontWeight.w700,fontSize:20),),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.white),
+
+              ),
+              IconButton(icon: Icon(FontAwesomeIcons.plus), onPressed: () { setState(() {
+                widget.listItem.quantity++;
+              });},),
+              SizedBox(width: 20,)
+            ],
+          )
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: Colors.black12,
+        borderRadius: BorderRadius.circular(5),
       ),
     );
   }
-
 }
