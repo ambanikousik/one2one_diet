@@ -6,15 +6,14 @@ import 'package:flutter_launch/flutter_launch.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'The 1:1 Diet',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: '1:1 Diet'),
+      home: MyHomePage(title: 'The 1:1 Diet'),
     );
   }
 }
@@ -28,16 +27,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  void sendWhatsapp(String text) async {
-    await FlutterLaunch.launchWathsApp(phone: "+880 1673-856051", message: text);
+  void sendWhatsapp(String text, bool canSend) async {
+    if(canSend) {
+      await FlutterLaunch.launchWathsApp(phone: " +44 77903 89551", message: text);
+    }
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor("6cace4"),
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title,style: TextStyle(
+          fontFamily:'Museo',
+          fontWeight: FontWeight.w700,
+        ),),
       ),
       body: ListView.builder(
         itemCount: ProductsList.length,
@@ -48,18 +53,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          String text='';
+          String text="Tanya's Order Form for 1:1 Diet: \n";
           for( var i = 0 ; i <ProductsList.length; i++ ) {
             final products = ProductsList[i];
             if(products.quantity>0 && products.checked == true){
-              text = text+products.name+': '+products.quantity.toString()+'\n';
+              text = text+'\n'+products.name+': '+products.quantity.toString();
+              canSend = true;
             }
-            sendWhatsapp(text);
+            sendWhatsapp(text,canSend);
           }
         },
         tooltip: 'Send to Whatsapp',
         child: Icon(Icons.send),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.indigo,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

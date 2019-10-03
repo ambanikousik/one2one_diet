@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+bool canSend = false;
 class Products {
   final String name;
   int quantity;
@@ -6,7 +8,17 @@ class Products {
   Products(
       {this.name, this.quantity, this.checked});
 }
+class HexColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
 
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
   List<Products> ProductsList =
   [
     Products(

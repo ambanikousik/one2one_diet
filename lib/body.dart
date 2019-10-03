@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'productView.dart';
 
 class productsView extends StatefulWidget{
  final listItem;
@@ -43,8 +44,9 @@ class _productsView extends State<productsView>{
                 ),
               ),
               Text(widget.listItem.name,style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
+                fontFamily: 'Museo',
+                fontWeight: FontWeight.w300,
+                fontSize: 16,
               ),),
             ],
           ),
@@ -63,7 +65,7 @@ class _productsView extends State<productsView>{
                   height: 40,
                   alignment: Alignment.center,
                   child: Text(widget.listItem.quantity.toString(),style: TextStyle(fontWeight:FontWeight.w700,fontSize:20),),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.white),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.black12),
 
               ),
               IconButton(icon: Icon(FontAwesomeIcons.plus), onPressed: () { setState(() {
@@ -75,7 +77,7 @@ class _productsView extends State<productsView>{
         ],
       ),
       decoration: BoxDecoration(
-        color: Colors.black12,
+        color: HexColor("b9d9eb"),
         borderRadius: BorderRadius.circular(5),
       ),
     );
