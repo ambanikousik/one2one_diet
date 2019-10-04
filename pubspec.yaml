@@ -32,7 +32,7 @@ dev_dependencies:
     sdk: flutter
 flutter_icons:
   android: true
-  image_path: "assets/launcher/logo.png"
+  image_path: "assets/logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
