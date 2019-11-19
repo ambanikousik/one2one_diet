@@ -46,7 +46,7 @@ class _productsView extends State<productsView>{
               Text(widget.listItem.name,style: TextStyle(
                 fontFamily: 'Museo',
                 fontWeight: FontWeight.w300,
-                fontSize: 16,
+                fontSize: 15,
               ),),
             ],
           ),

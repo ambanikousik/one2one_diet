@@ -34,6 +34,10 @@ class HexColor extends Color {
       quantity: 0, checked: false,
     ),
     Products(
+      name:   'SHAKE - Mince Pie',
+      quantity: 0, checked: false,
+    ),
+    Products(
       name:   'SHAKE - Cappuccino',
       quantity: 0, checked: false,
     ),
@@ -65,6 +69,11 @@ class HexColor extends Color {
       name: 'TDR SHAKE - Vanilla',
       quantity: 0, checked: false,
     ),
+    Products(
+      name: 'TDR SHAKE - Strawberry',
+      quantity: 0, checked: false,
+    ),
+
     Products(
       name: 'READYMADE - Chocolate',
       quantity: 0, checked: false,
@@ -117,16 +126,22 @@ class HexColor extends Color {
       name: 'MEAL BAR - Festive Bar',
       quantity: 0, checked: false,
     ),
-    Products(
-      name: 'MEAL BAR - Chocolate',
-      quantity: 0, checked: false,
-    ),
+
     Products(
       name: 'TDR MEAL BAR - Lemon',
       quantity: 0, checked: false,
     ),
+
+    Products(
+      name: 'TDR meal bar - peanut',
+      quantity: 0, checked: false,
+    ),
     Products(
       name: 'BITES - Choc mint',
+      quantity: 0, checked: false,
+    ),
+    Products(
+      name: 'BITES - Salted Caramel',
       quantity: 0, checked: false,
     ),
     Products(
@@ -166,10 +181,6 @@ class HexColor extends Color {
       quantity: 0, checked: false,
     ),
     Products(
-      name:'PACKET MEAL - Spicy Cous Cous',
-      quantity: 0, checked: false,
-    ),
-    Products(
       name: 'SOUP - Chicken and mushroom Soup',
       quantity: 0, checked: false,
     ),
@@ -202,7 +213,7 @@ class HexColor extends Color {
       quantity: 0, checked: false,
     ),
     Products(
-      name: 'Smoothie - Breakfast Strawberry & Banana',
+      name: 'Smoothie - B/F Strawberry & Banana',
       quantity: 0, checked: false,
     ),
     Products(
@@ -218,11 +229,11 @@ class HexColor extends Color {
       quantity: 0, checked: false,
     ),
     Products(
-      name: 'Cucumber & Mint - WATER FLAVOURING',
+      name: 'Cucumber & Mint - W/F',
       quantity: 0, checked: false,
     ),
     Products(
-      name: 'Raspberry & Elderflower - WATER FLAVOURING',
+      name: 'Raspberry & Elderflower - W/F',
       quantity: 0, checked: false,
     ),
     Products(
